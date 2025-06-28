@@ -1,0 +1,92 @@
+title: "[Help]: "
+labels: ["Help"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Read Me First!
+
+        Thanks for using my image! Hopefully it's helpful to you. If you're looking for help with this container image, related to the packaging or function of this Docker image, you're in the right place. If you have a bug with the software that is not related to this Docker image, file an issue on the [TP-Link community forums](https://community.tp-link.com/en/business/forum/582). If you're not sure if it is a problem with the Docker image or the software, we can figure that out so go ahead and start a discussion. If you are certain you have found a bug in the packaging or function of this image, go ahead and create a [Bug Report Issue](https://github.com/mbentley/docker-omada-controller/issues/new/choose). In order to better help you, it would be great if you can provide as much information as you can below.
+
+        If you are not sure how to gather some of the requested information, please check out the [support info](https://github.com/mbentley/docker-omada-controller/blob/master/SUPPORT_INFO.md) README.
+  - type: input
+    id: controller-version
+    attributes:
+      label: Controller Version
+      description: |
+        What is the version of the Omada Controller that you're running? This can be found in the hamburger menu (three dots) in the upper right hand corner of the main screen and under 'About' or in the container startup logs. This is *not* the image tag (i.e. - not `latest`)
+      placeholder: v5.7.4
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe Your Issue or Question
+      description: |
+        Please provide a clear and concise description of what you're trying to achieve and what the problem is that you're facing.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: |
+        A clear and concise description of what you expect to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Steps to reproduce the unexpected behavior with as much detail as possible.
+      placeholder: |
+        1.
+        2.
+        3.
+        4.
+    validations:
+      required: true
+  - type: textarea
+    id: docker-run
+    attributes:
+      label: How You're Launching the Container
+      description: |
+        Include your complete `docker run` or compose file to make analysis easier.
+      render: plain
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Container Logs
+      description: |
+        Collect logs by using something similar to `docker logs omada-controller >& output.log` if needed and attach them or copy out the relevant portions of the error. When in doubt, do both. I can't help without logs!
+      placeholder: |
+        logs
+        go
+        here
+      render: plain
+    validations:
+      required: true
+  - type: textarea
+    id: mongo-logs
+    attributes:
+      label: MongoDB Logs
+      description: |
+        If the container is refusing to start or the controller app fails to start up, collect logs from MongoDB. These can be copied from the container using `docker cp omada-controller:/opt/tplink/EAPController/logs/mongod.log .` or by copying them from the volume/bind mount specified for the logs directory.
+      placeholder: |
+        logs
+        go
+        here
+      render: plain
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context about the issue here.
+    validations:
+      required: false
